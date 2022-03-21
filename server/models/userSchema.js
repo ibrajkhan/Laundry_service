@@ -10,9 +10,7 @@ const userSchema=new Schema({
     address:{type:String,required:true},
     pincode:{type:Number,required:true},  
     passowrd:{type:String,required:true},
-},    
-    {timestamps:true}
-    );
+},{timestamps:true});
     
 const User=mongoose.model('Users',userSchema);
 module.exports=User;
