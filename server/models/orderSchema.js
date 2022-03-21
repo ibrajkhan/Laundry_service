@@ -24,10 +24,26 @@ const orderSchema = new Schema({
     others:[products],
     totalPrice:{type:Number},
     totalItems:{type:Number},
+    storelocation: {
+        type: String,
+        default: "Jp nagar",
+    },
+    city: {
+        type: String,
+        default: "Bengaluru",
+    },
+    storephone: {
+        type: String,
+        default: "9876543211",
+    },
+    status: {
+        type: String,
+        default: "Ready to pickup",
+    },
     //date:{type:Date,default:Date.now()}
 },{timestamps:true})
 
 
 const Order= mongoose.model('Order',orderSchema)
 
-module.exports=Order
+module.exports=Order 
