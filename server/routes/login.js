@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-//const { body, param, validationResult } = require("express-validator");
 const jwt = require("jsonwebToken");
 const bodyparser = require("body-parser");
 
@@ -16,10 +15,6 @@ router.use(bodyparser());
 router.post("/register", async (req, res) => {
   console.log(req.body);
   try {
-    // const errors = validationResult(req);
-    // if (!errors.isEmpty()) {
-    //   return res.status(400).json({ errors: errors.array() });
-    // }
     const { name, email, password, phone, state, district, address, pincode } = req.body;
     const exist = await User.findOne({ email: email });
     if (exist) {
@@ -47,13 +42,10 @@ router.post("/register", async (req, res) => {
   }
 });
 
+// Signin
 router.post("/signin",async (req, res) => {
     console.log(req.body);
     try {
-    //   const errors = validationResult(req);
-    //   if (!errors.isEmpty()) {
-    //     return res.status(400).json({ errors: errors.array() });
-    //   }
       const { email, phone, password } = req.body;
       var exist = email;
       if (email) {
@@ -109,41 +101,3 @@ router.post("/signin",async (req, res) => {
 module.exports = router;
 
 
-// app.post('/signin',async (req,res)=>{
-//     const {Email,Password}=req.body;
-//     try{
-//         const {Email,Password,Phone}=req.body;
-//         //const exist=await Registeruser.findOne({Email});
-//         const exist=await Registeruser.findOne({$or:[{Email},{Phone}]});
-//         //const exists=await Registeruser.findOne({Phone})
-//         if(!exist){
-//          res.status(400).send("User not found")
-//         }
-//         //else if(!exists){
-//           //  res.status(400).send("User not found")
-//            //}
-//         bcrypt.compare(Password, exist.Password).then(function(result) {
-//             if (result){
-//                 let payload={
-//                     user:{
-//                         id:exist._id
-//                     }
-//                 }
-//                 jwt.sign(payload,"jwtscreate",{expiresIn:3600000},(err,token)=>{
-//                     if(err)throw err
-//                     return res.json({
-//                         status:"sucess",
-//                         message:"login sucessfuly",
-//                         token
-//                     })
-//                 })
-//             }else{
-//              res.status(400).json({
-//                     status:"failed",
-//                     message:"Not authenticated"
-//                 })
-//             }
-//         });
-//     }catch(err){
-//         return res.status(400).send("password hashin wrong")}
-// })
