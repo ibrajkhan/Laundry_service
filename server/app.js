@@ -1,8 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+//importing Routes
 const orderRoutes = require("./routes/orders");
 const loginRoutes = require("./routes/login");
-const bodyParser = require("body-parser");
+
 const app = express();
 app.use(bodyParser());
 const { MONGOURL, SECRETE } = require("./keys");
@@ -16,7 +18,7 @@ db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
   console.log("Connected successfully");
 });
-app.get("/order", (req, res, next) => {
+app.get("/orders", (req, res, next) => {
   var token = req.headers.authorization.split("test ")[1];
   if (!token) {
     return res.status(401).json({
@@ -24,15 +26,15 @@ app.get("/order", (req, res, next) => {
       message: "Token is missing",
     });
   }
-  // verify the toke
-  jwt.verify(token, SECRETE, async function (err, decoded) {
+  //verify the token
+  jwt.verify(token, SECRETE, async  (err, decoded)=> {
     if (err) {
       return res.status(401).json({
         status: "failed",
         message: "Invalid token",
       });
     }
-    // req.user = decoded.data;
+    req.user = decoded.data;
     next();
   });
 });

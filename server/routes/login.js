@@ -1,30 +1,31 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+//const { body, param, validationResult } = require("express-validator");
+const jwt = require("jsonwebToken");
+const bodyparser = require("body-parser");
+
+
 const router = express.Router();
 const User = require("../models/userSchema");
-const bcrypt = require("bcrypt");
-const { body, param, validationResult } = require("express-validator");
-const mongoose = require("mongoose");
-var jwt = require("jsonwebToken");
-const bodyparser = require("body-parser");
 
 const { SECRETE } = require("../keys");
 router.use(bodyparser());
 
 // Register
-router.post("/register", body("email"), body("name"), async (req, res) => {
+router.post("/register", async (req, res) => {
   console.log(req.body);
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-    const { name, email, password, phone, state, district, address, pincode } =
-      req.body;
-    const exist = User.findOne({ email: email });
+    // const errors = validationResult(req);
+    // if (!errors.isEmpty()) {
+    //   return res.status(400).json({ errors: errors.array() });
+    // }
+    const { name, email, password, phone, state, district, address, pincode } = req.body;
+    const exist = await User.findOne({ email: email });
     if (exist) {
       return res.send("email already exists");
     }
-    const hash = bcrypt.hash(password, 10, async function (err, hash) {
+    bcrypt.hash(password, 10, async (err, hash) =>{
       if (err) {
         res.status(400).json({ status: "failed", message: "invalid details" });
       }
@@ -46,20 +47,18 @@ router.post("/register", body("email"), body("name"), async (req, res) => {
   }
 });
 
-router.post(
-  "/signin",
-  body("email").isEmail(),
-  body("password").isAlpha(),
-  async (req, res) => {
+router.post("/signin",async (req, res) => {
     console.log(req.body);
     try {
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-      }
+    //   const errors = validationResult(req);
+    //   if (!errors.isEmpty()) {
+    //     return res.status(400).json({ errors: errors.array() });
+    //   }
       const { email, phone, password } = req.body;
+      var exist = email;
       if (email) {
         const Email = await User.findOne({ email: email });
+        exist = Email;
         if (!Email) {
           return res.status(401).json({
             status: "failed",
@@ -68,6 +67,7 @@ router.post(
         }
       } else if (phone) {
         const Phone = await User.findOne({ phone: phone });
+        exist = Phone;
         if (!Phone) {
           return res.status(401).json({
             status: "failed",
@@ -76,7 +76,7 @@ router.post(
         }
       }
 
-      bcrypt.compare(password, User.password).then(function (result) {
+      bcrypt.compare(password, exist.password).then((result)=> {
         if (result) {
           var token = jwt.sign(
             {
@@ -107,3 +107,43 @@ router.post(
 );
 
 module.exports = router;
+
+
+// app.post('/signin',async (req,res)=>{
+//     const {Email,Password}=req.body;
+//     try{
+//         const {Email,Password,Phone}=req.body;
+//         //const exist=await Registeruser.findOne({Email});
+//         const exist=await Registeruser.findOne({$or:[{Email},{Phone}]});
+//         //const exists=await Registeruser.findOne({Phone})
+//         if(!exist){
+//          res.status(400).send("User not found")
+//         }
+//         //else if(!exists){
+//           //  res.status(400).send("User not found")
+//            //}
+//         bcrypt.compare(Password, exist.Password).then(function(result) {
+//             if (result){
+//                 let payload={
+//                     user:{
+//                         id:exist._id
+//                     }
+//                 }
+//                 jwt.sign(payload,"jwtscreate",{expiresIn:3600000},(err,token)=>{
+//                     if(err)throw err
+//                     return res.json({
+//                         status:"sucess",
+//                         message:"login sucessfuly",
+//                         token
+//                     })
+//                 })
+//             }else{
+//              res.status(400).json({
+//                     status:"failed",
+//                     message:"Not authenticated"
+//                 })
+//             }
+//         });
+//     }catch(err){
+//         return res.status(400).send("password hashin wrong")}
+// })
