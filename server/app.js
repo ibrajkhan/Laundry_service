@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const jwt = require("jsonwebtoken")
 //importing Routes
 const orderRoutes = require("./routes/orders");
 const loginRoutes = require("./routes/login");
@@ -19,7 +20,7 @@ db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
   console.log("Connected successfully");
 });
-app.get("/order", (req, res, next) => {
+app.use("/order", (req, res, next) => {
   var token = req.headers.authorization.split("test ")[1];
   if (!token) {
     return res.status(401).json({
@@ -35,12 +36,13 @@ app.get("/order", (req, res, next) => {
         message: "Invalid token",
       });
     }
+    console.log(decoded)
     req.user = decoded.data;
     next();
   });
 });
 
 app.use("/", loginRoutes);
-app.use("/", orderRoutes);
+app.use("/order", orderRoutes);
 
 app.listen(5000, () => console.log("server is started"));

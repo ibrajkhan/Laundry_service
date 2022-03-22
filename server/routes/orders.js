@@ -12,7 +12,7 @@ const Products = require("../models/orderSchema");
 
 //Creating Order
 
-router.post("/order", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const {
       totalPrice,
@@ -25,11 +25,11 @@ router.post("/order", async (req, res) => {
       boxers,
       others,
     } = req.body;
-    const Order = await Products.create({
+    const Order = await Products.create({      
       totalItems,
       totalPrice,
       dataOrdered: dayjs().format("dddd, MMM D, h:mm A"),
-      user: req.user,
+      userId: req.user,
       shirts,
       Tshirts,
       trouncers,
@@ -52,7 +52,7 @@ router.post("/order", async (req, res) => {
 });
 
 // geting particular order  details (summary)
-router.get("/order/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const Order = await Products.find({ _id: req.params.id });
     console.log(Order)
@@ -76,7 +76,7 @@ router.get("/order/:id", async (req, res) => {
 });
 
 // To Cancel a order(making status as cancelled)
-router.put("/order/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const Order = await Products.updateOne(
       { _id: req.params.id, user: req.user },
@@ -96,7 +96,7 @@ router.put("/order/:id", async (req, res) => {
 
 // fetching all orders
 
-router.get("/order", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const Orders = await Products.find({ user: req.user });
     return res.status(200).json({
