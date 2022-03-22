@@ -22,7 +22,7 @@ router.post("/order", async (req, res) => {
       trouncers,
       jeans,
       joggers,
-      sacuuress,
+      boxers,
       others,
     } = req.body;
     const Order = await Products.create({
@@ -34,7 +34,7 @@ router.post("/order", async (req, res) => {
       Tshirts,
       trouncers,
       jeans,
-      sacuuress,
+      boxers,
       joggers,
       others,
     });
@@ -50,11 +50,12 @@ router.post("/order", async (req, res) => {
     });
   }
 });
-// geting particular order  details
 
+// geting particular order  details (summary)
 router.get("/order/:id", async (req, res) => {
   try {
     const Order = await Products.find({ _id: req.params.id });
+    console.log(Order)
     if (!Order) {
       return res.status(404).json({
         status: "Not Updated",
@@ -64,7 +65,7 @@ router.get("/order/:id", async (req, res) => {
     return res.status(200).json({
       status: "sucess",
       message: "Found the Order",
-      Order,
+      data:Order,
     });
   } catch (e) {
     res.status(500).json({

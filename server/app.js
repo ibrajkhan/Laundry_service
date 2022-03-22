@@ -6,7 +6,8 @@ const orderRoutes = require("./routes/orders");
 const loginRoutes = require("./routes/login");
 
 const app = express();
-app.use(bodyParser());
+app.use(bodyParser()); 
+// keys
 const { MONGOURL, SECRETE } = require("./keys");
 
 //connecting database
@@ -18,7 +19,7 @@ db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
   console.log("Connected successfully");
 });
-app.get("/orders", (req, res, next) => {
+app.get("/order", (req, res, next) => {
   var token = req.headers.authorization.split("test ")[1];
   if (!token) {
     return res.status(401).json({

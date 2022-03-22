@@ -2,8 +2,8 @@ const mongoose=require('mongoose')
 
 const {Schema}=mongoose
 
-const products = new Schema({
-    
+//washType
+const products = new Schema({    
         quantity:{type:Number,default:0},
         washing: { type: Boolean, default: false },
         ironing: { type: Boolean, default: false },
@@ -12,15 +12,15 @@ const products = new Schema({
         price:{type:Number}  
 })
 
-
+//Order
 const orderSchema = new Schema({
-    userId :  {type:Schema.Types.ObjectId,ref:'User'},
+    userId :  {type:Schema.Types.ObjectId,ref:'User'}, 
     shirts:[products],
     Tshirts:[products],
     trouncers:[products],
     jeans:[products],
-    sacuuress:[products],
     joggers:[products],
+    boxers:[products],
     others:[products],
     totalPrice:{type:Number},
     totalItems:{type:Number},
@@ -46,4 +46,4 @@ const orderSchema = new Schema({
 
 const Order= mongoose.model('Order',orderSchema)
 
-module.exports=Order 
+module.exports=Order;
