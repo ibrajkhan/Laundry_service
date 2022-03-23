@@ -1,17 +1,23 @@
 import React from "react";
 import "../Css/EmptyOrder.css";
 import "../SerchComponent";
-// import SearchComponent from "../SerchComponent";
+import SearchComponent from "../SerchComponent";
 
 const EmptyOrder = () => {
   return (
     <div className="Outer">
-      <p>Order|0</p>
-      <div className="paraBtn">
-        <p>No Orders Available</p>
-        <button>Create</button>
+      <p className="currentOrder">Order|0</p>
+      <div className="Search">
+        <SearchComponent />
       </div>
-      {/* <SearchComponent /> */}
+      <div className="paraBtn">
+        <div className="noOrder">
+          <p>No Orders Available</p>
+        </div>
+        <div>
+          <button>Create</button>
+        </div>
+      </div>
     </div>
   );
 };

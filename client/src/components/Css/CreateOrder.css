@@ -1,0 +1,10 @@
+.orderE {
+  display: flex;
+  flex-direction: row;
+}
+.aside {
+  width: 10vh;
+}
+.empty {
+  width: 90vh;
+}
