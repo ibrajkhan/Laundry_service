@@ -1,5 +1,5 @@
 import React from "react";
-import './main.css'
+
 import ProductData from "./productData";
 import shirts from "../images/shirts.jpg"
 import tshirts from "../images/tshirts.jpg"
@@ -54,14 +54,21 @@ function  ProductListing(){
         <div className="table-content">
             <div></div>
             <table className="table" cellPadding="10" cellSpacing="30">
-               <thead className="table-head">
-                    <tr className="table-row-darkOne">
+               <thead className="table-head" >
+                <caption><ul>
+                  <li>Product Types</li>
+                  <li>Qunatity</li>
+                  <li>Wash-Type</li>
+                  <li>Price</li>
+                  <li>Reset</li>
+                  </ul></caption>
+                    {/* <tr className="table-row-darkOne" >
                     <th>Product Types</th>
                     <th>Qunatity</th>
                     <th>Wash-Type</th>
                     <th>Price</th>
                     <th>Reset</th>
-                    </tr>
+                    </tr> */}
                 </thead>
                 <tbody>
                     {productsData.map((product)=>(

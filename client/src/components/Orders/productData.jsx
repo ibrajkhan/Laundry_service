@@ -1,6 +1,5 @@
 import React from "react";
-import './main.css'
-
+import "../Css/ProductCreating.css"
 
 import wash from "../images/wash.png";
 import washClick from "../images/washclick.png";

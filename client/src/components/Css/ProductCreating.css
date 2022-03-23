@@ -1,0 +1,53 @@
+.aside-Product{
+    display: flex;
+    flex-direction: column;
+}
+.aside{
+    width: 10vw;
+}
+.product-table{
+    position: absolute;
+    left: 150px;
+    width: 90vw;
+}
+.productImg{
+    width: 45px;
+    height: 40px;
+}
+.createOrder{
+    position: absolute;
+    left: 50px;
+    top: 20px;
+}
+.searchComponent{
+    position: absolute;
+    right: 50px;
+}
+.wash-type{
+    display: inline-block;
+    margin: 15px;
+}
+caption {
+    width: 95%;
+    position: absolute;
+    top: 50px;
+    background-color: #2F2F2F;
+    color: white;
+
+}
+caption >ul>li{
+    margin-right: 50px;
+    display: inline-block;
+    margin: 10px;
+    padding: auto;
+
+}
+.productlisting{
+    margin-top: 50px;
+}
+.table-content{
+    height: 78vh;
+}
+.row-product{
+    display: inline-block;
+}

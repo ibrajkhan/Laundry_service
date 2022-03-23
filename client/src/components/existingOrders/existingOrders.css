@@ -1,0 +1,96 @@
+.existingOrder-Container{
+    overflow: hidden;
+}
+
+.existingOrder-PageHeading{
+    display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: calc(24.8px + 45px);
+  border: 1px solid;
+}
+.existingOrders-count{
+    font-size: 18px;
+  font: normal;
+  font-weight: 600;
+  letter-spacing: 0px;
+  color: #1e2022;
+  text-transform: capitalize;
+  opacity: 1;
+  
+}
+.existingOrders-count label{
+    position: absolute;
+  left: 49px;
+  top: 25px;
+}
+.search{
+    position: absolute;
+    right: 48px;
+    top: 25px;
+}
+.button{
+    position: absolute;
+    right: 275px;
+    top: 25px;
+}
+.table-Orders{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    position: absolute;
+    left: 49px;
+    border: 1px solid;
+    font-size: 13px;
+    width: 1263px;
+}
+.table-Orders td{
+    padding: 9px 10px;
+    border-bottom: 1px solid #EAEDF0;
+    box-sizing: border-box;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.table-Orders td:hover{
+    cursor: pointer;
+}
+.table-Orders th{
+    padding: 9px 10px;
+    font-weight: 550;
+}
+.table-Orders thead th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #383737;
+    color: white;
+}
+.price{
+    color: #5861AE;
+    font-weight: bold;
+}
+.cancel{
+    color: red;
+    opacity: 1;
+
+}
+
+.table__button{
+    border: none;
+    background: transparent;
+}
+
+.cancel:hover{
+    cursor: pointer;
+}
+
+.view{
+    height: 10.48px;
+    width: 16.74px;
+  }
+  
+  .view:hover{
+    cursor: pointer;
+  }
+ 
+  
