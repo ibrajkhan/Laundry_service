@@ -1,0 +1,9 @@
+.Outer {
+  width: 90vh;
+}
+
+.paraBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
