@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import axios from "axios";
-import "../Summary/SummaryOrder.css";
+import './SummaryOrder.css'
+import OrderConfirm from "./Confirmation"
 
 function SummaryOrder(props) {
   console.log(props.order);
@@ -12,7 +12,7 @@ function SummaryOrder(props) {
   const washPrice = [];
   const Price = [];
 
-  props.orders.forEach((product) => {
+  props.order.forEach((product) => {
     let wash = "";
     let price = 0;
     console.log(product);
@@ -45,32 +45,8 @@ function SummaryOrder(props) {
     setStoreNo("+91 9999999999");
     setStoreAddress("Near phone Booth, 10th road");
     setDisabled(false);
-  };
-
-  // const handleConfirmationPopup = () => {
-  //     props.handleConfirmationPopup()
-  // }
-
-  const handleSubmitClick = () => {
-    console.log("submit clicked");
-    const token = localStorage.getItem("token");
-    //const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjIzNzU0NmUxYWYyYTA5NDZhMzFmMDJhIiwiaWF0IjoxNjQ3NzkzMjY2LCJleHAiOjE2NDgzOTgwNjZ9.gQRci9zeR7PSo5ZNTIYAAgCll4jqh49qMjZ5KjRAwiA"
-    let config = {
-      headers: {
-        Authorization: "test" + token,
-      },
-    };
-    //     axios
-    //       .post("http://localhost:5000/orders", props.order, config)
-    //       .then((res) => {
-    //         console.log(res);
-    //       })
-    //       .catch((err) => console.log(err));
-
-    //     props.handleSummaryClose();
-    //     // handleConfirmationPopup()
-    //     props.handleConfirmationPopup();
-    //   };
+  };    
+    const [confirm, setConfirm]=useState(false)
 
     return (
       <div className="popup-box">
@@ -113,7 +89,7 @@ function SummaryOrder(props) {
             <h4>Order Details</h4>
             <table className="summary__table">
               <tbody>
-                {props.order.products.map((product, index) => {
+                {props.order.map((product, index) => {
                   return (
                     <tr key={index}>
                       <td className="product__type">
@@ -163,15 +139,15 @@ function SummaryOrder(props) {
           <div className="summary__footer">
             <button
               className="submit__button"
-              disabled={disabled}
-              onClick={handleSubmitClick}
+              onClick={()=>{setConfirm(true)}}
             >
               Confirm
             </button>
           </div>
+          {confirm && <OrderConfirm/>}
         </div>
       </div>
     );
-  };
+  
 }
 export default React.memo(SummaryOrder);

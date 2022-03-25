@@ -79,7 +79,7 @@ function ProductListing() {
     },
   ];
 
-  //   const [isSummaryOpen, setIsSummaryOpen] = useState(false);
+  const [isSummaryOpen, setIsSummaryOpen] = useState(false);
 
   // useEffect((e) => {
   //   e.preventdefault();
@@ -126,10 +126,10 @@ function ProductListing() {
       </table>
       <div className="bootom-button">
         <button className="cancel">Cancel</button>
-        <button className="proceed">Proceed</button>
+        <button className="proceed" onClick={()=>setIsSummaryOpen(true)}>Proceed</button>
       </div>
 
-      {/* {isSummaryOpen && <SummaryOrder order={orders} />} */}
+      {isSummaryOpen && <SummaryOrder order={orders} />}
     </div>
   );
 }

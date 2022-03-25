@@ -1,0 +1,58 @@
+.popup-box{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0,0.15);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert__box{
+    height: 206px;
+    width: 390px;
+    background-color: #fff;
+}
+
+.btn__close{
+    cursor: pointer;
+    font-size: 25px;
+    border: none;
+    background-color: #5861AE;
+    color: white;
+}
+
+.alert__header, .alert__content{
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+}
+
+.alert__header{
+    background-color: #5861AE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    min-height: 20px;
+    color: white;
+}
+
+.alert__content{
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    align-items: center;
+    text-align: center;
+    height: 125px;
+}
+.warning__icon{
+    height: 35px;
+    width: 35.67px;
+    margin: 0;
+}
+
+.alert__message{
+    text-align: center;
+    line-height: 1.5rem;
+    margin-bottom: 1.8rem;
+}

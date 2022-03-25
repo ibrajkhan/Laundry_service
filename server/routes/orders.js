@@ -98,7 +98,7 @@ router.put("/:id", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const Orders = await Products.find({ user: req.user });
+    const Orders = await Products.find({ userId: req.user });
     return res.status(200).json({
       status: "Sucess",
       date: Orders,

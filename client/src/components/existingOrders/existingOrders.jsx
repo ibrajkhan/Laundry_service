@@ -1,6 +1,8 @@
-import React from "react";
+import React,{useState} from "react";
 import SearchComponent from "../SerchComponent";
 import "./existingOrders.css";
+import eye from "../images/eye.png"
+import Summary from "./SummaryPastOrder"
 
 const ExistingOrders = () => {
   const orders = [
@@ -69,6 +71,7 @@ const ExistingOrders = () => {
       totalPrice: 400,
     },
   ];
+  const [isSummaryOpen, setIsSummaryOpen] = useState(false);
   const count = 7;
   const tableHeadings = [
     "Order id",
@@ -129,14 +132,16 @@ const ExistingOrders = () => {
                         </button>
                       </td>
                       <td>
-                        <img className="view" alt="view"></img>
+                        <button onClick={()=>setIsSummaryOpen(true)}><img className="view" src={eye}  alt="view"></img></button>
                       </td>
                     </tr>
+                    
                   );
                 })}
               </tbody>
             </table>
           </div>
+          {isSummaryOpen && <Summary order={orders} />}
         </div>
       </div>
     </div>
