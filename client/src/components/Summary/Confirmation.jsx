@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 import "./Confirmation.css"
 
 import tick from "../images/tickorder.png"
@@ -23,7 +23,7 @@ function OrderConfirm() {
     
             <div className='confirmation__message'>You can track the delivery in the "Orders" section</div>
             <div className='button__confirmation'>
-            <button className = "go__button" >Go To Orders</button>
+            <Link to ='/orders'><button className = "go__button" >Go To Orders</button></Link>
             </div>
         </div>
     </div>
