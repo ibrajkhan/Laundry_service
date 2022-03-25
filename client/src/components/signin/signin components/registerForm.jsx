@@ -3,7 +3,7 @@ import './registerform.css'
 
 function RegisterForm(){
     return <div className='register-component'>
-            <h1 className="register">REGISTER</h1>
+            <h1 className="register">REGISTER</h1> 
             <form className='register-forms'>
                 <div className="dif-forms">
                 <div className="one-form">

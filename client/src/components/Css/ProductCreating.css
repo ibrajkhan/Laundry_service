@@ -61,10 +61,7 @@ caption > .pro {
   left: 125px;
 }
 
-/* caption > ul > li {
-  display: inline-block;
-  margin: 10px;
-  /* margin-right: 190px; */
+
 .productlisting {
   margin-top: 50px;
 }
@@ -98,7 +95,4 @@ td > p {
 td > button {
   margin-left: 100px;
 }
-/* .bootom-button {
-  position: absolute;
-  bottom: 50px;
-} */
+

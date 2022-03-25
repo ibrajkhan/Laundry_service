@@ -1,10 +1,10 @@
 import React from "react";
 import AsideComponent from "../AsideComponent";
-import FooterTwo from "../FooterTwo";
 import HeaderTwo from "../HeaderTwo";
 import ProductListing from "./productListCreating";
 import "../Css/ProductCreating.css";
 import SearchComponent from "../SerchComponent";
+import FooterTwo from "../signin/signin components/FooterTwo";
 
 const ProductCreatingOrder = () => {
   return (

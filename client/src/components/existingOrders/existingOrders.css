@@ -1,33 +1,3 @@
-/* .existingOrder-PageHeading {
-  display: flex;
-  flex-direction: row;
-  height: calc(24.8px + 45px);
-  position: absolute;
-  top: 50px;
-}
-.existingOrders-count {
-  font-size: 18px;
-  font: normal;
-  font-weight: 600;
-  color: #1e2022;
-  text-transform: capitalize;
-  opacity: 1;
-}
-.existingOrders-count label {
-  position: absolute;
-  left: 49px;
-  top: 25px;
-}
-.search {
-  position: absolute;
-  right: 48px;
-  top: 25px;
-}
-.button {
-  position: absolute;
-  right: 305px;
-  top: 25px;
-} */
 
 .existingOrder-PageHeading {
   display: flex;

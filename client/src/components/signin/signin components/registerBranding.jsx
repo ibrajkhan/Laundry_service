@@ -8,7 +8,7 @@ function RegisterBranding(){
         <h1 className="reg-brand">Laundry Service
         <p className="reg-caption">Doorstep Wash &amp; Dryclean Service</p>
         </h1>
-        
+         
         </div>
         
         <div className='reg-register-button'>

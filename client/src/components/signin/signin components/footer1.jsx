@@ -5,7 +5,7 @@ import linkedin from '../images/linkedin.jpg';
 
 
 
-function Footer(){
+function Footer(){ 
     return(
         <div className='footer1'>
         <div className="referal-component">

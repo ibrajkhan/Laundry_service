@@ -3,7 +3,7 @@ import './branding.css'
 
 function Branding(){
     return(
-        <div className='branding'>
+        <div className='branding'> 
         
         <div className='main-heading'>
         <h1 className="brand">Laundry Service

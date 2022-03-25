@@ -8,7 +8,7 @@ import packClick from "../images/packclick.png";
 import iron from "../images/iron.png";
 import ironClick from "../images/ironclick.png";
 import fold from "../images/fold.png";
-import foldclick from "../images/foldclick.png";
+//import foldclick from "../images/foldclick.png";
 
 function ProductData(props) {
   return (

@@ -8,7 +8,7 @@ function OrderConfirm() {
     console.log("inside  confirmation popup");
 
 
-  return (
+  return ( 
     <div className='popup-box'>
       {console.log("footer component rendering")}
     <div className='confirmation__box'>

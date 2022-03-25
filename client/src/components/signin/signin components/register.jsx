@@ -4,7 +4,7 @@ import RegisterForm from "./registerForm";
 import Header from './header';
 import Footer from './footer1';
 import FooterTwo from './FooterTwo';
-import './register.css';
+import './register.css'; 
 
 function Register(){
     return<div>
