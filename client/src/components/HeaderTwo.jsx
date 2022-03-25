@@ -8,7 +8,7 @@ const Header = () => {
         <h3 className="Laundry__Text">Laundry</h3>
       </div>
       <div className="nav">
-        <nav>
+        <nav> 
           <ul className="navbar">
             <Link to='/'><li>Home</li></Link>
             <li>Career</li>

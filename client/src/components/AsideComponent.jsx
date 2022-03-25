@@ -6,7 +6,7 @@ import "./Css/AsideComponent.css";
 import { Link } from 'react-router-dom';
 
 const AsideComponent = () => {
-  return (
+  return ( 
     <div className="aside__icon">
       <div>
         <Link to='/'><HomeIcon sx={{ "&:hover": { color: "#5861ae" } }} /></Link>

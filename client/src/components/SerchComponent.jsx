@@ -12,7 +12,7 @@ const SearchComponent = () => {
         </InputAdornment>
       }
     />
-  );
+  ); 
 };
 
 export default SearchComponent;
