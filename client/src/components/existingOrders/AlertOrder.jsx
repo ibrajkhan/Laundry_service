@@ -1,10 +1,15 @@
 import React from 'react'
 import "./alert.css"
+import { Link } from 'react-router-dom'
 
 import Warning from "../images/warning.jpg"
+import { useThemeProps } from '@mui/material'
 
 
-function Alert() {
+function Alert(props) {
+    const goToPast=()=>{
+        props.handleClose()
+    }
 
     return (
         <div className='popup-box'>
@@ -26,7 +31,7 @@ function Alert() {
                         </p>
 
                         <div >
-                            <button>Proceed </button>
+                            <Link to="/orders"><button onClick={goToPast}>Proceed </button></Link>
                         </div>
                     </div>
                 </div>

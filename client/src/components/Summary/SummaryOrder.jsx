@@ -46,8 +46,10 @@ function SummaryOrder(props) {
     setStoreAddress("Near phone Booth, 10th road");
     setDisabled(false);
   };    
-    const [confirm, setConfirm]=useState(false)
-
+    const handleClick =()=>{
+      props.confirmPopup()
+      props.summaryPopup()
+    }
     return (
       <div className="popup-box">
         {console.log("summary to create component rendering")}
@@ -56,7 +58,7 @@ function SummaryOrder(props) {
             Summary
             <button
               className="summary__btn__close"
-              onClick={props.handleSummaryClose}
+              onClick={props.summaryPopup}
             >
               x
             </button>
@@ -139,12 +141,12 @@ function SummaryOrder(props) {
           <div className="summary__footer">
             <button
               className="submit__button"
-              onClick={()=>{setConfirm(true)}}
+              onClick={()=>handleClick}
             >
               Confirm
             </button>
           </div>
-          {confirm && <OrderConfirm/>}
+
         </div>
       </div>
     );

@@ -3,6 +3,7 @@ import SearchComponent from "../SerchComponent";
 import "./existingOrders.css";
 import eye from "../images/eye.png"
 import Summary from "./SummaryPastOrder"
+import Alert from "./AlertOrder"
 
 const ExistingOrders = () => {
   const orders = [
@@ -71,7 +72,44 @@ const ExistingOrders = () => {
       totalPrice: 400,
     },
   ];
+  const products = [
+    {
+      productType: "Shirts",
+      quantity: 15,
+      totalPrice: 50,
+      washing: true,
+      ironing: true,
+      chemicalwash: true,
+      drywash: true,
+    },
+    {
+      productType: "Tshirt",
+      quantity: 15,
+      totalPrice: 50,
+      washing: true,
+      ironing: true,
+      chemicalwash: true,
+      drywash: true,
+    },
+    {
+      productType: "trouser",
+      quantity: 15,
+      totalPrice: 50,
+      washing: true,
+      ironing: true,
+      chemicalwash: true,
+      drywash: true,
+    },
+  ];
   const [isSummaryOpen, setIsSummaryOpen] = useState(false);
+  const [alertIsOpen, setAlertIsOpen] = useState(false);
+
+  const toggleAlert=()=>{
+    setAlertIsOpen(!alertIsOpen)
+  }
+  const toggleSummary =()=>{
+    setIsSummaryOpen(!isSummaryOpen)
+  }
   const count = 7;
   const tableHeadings = [
     "Order id",
@@ -141,7 +179,9 @@ const ExistingOrders = () => {
               </tbody>
             </table>
           </div>
-          {isSummaryOpen && <Summary order={orders} />}
+          {alertIsOpen && <Alert handleClose={toggleAlert}/>}
+          {isSummaryOpen && <Summary order={products} handleSummary={toggleSummary} handleAlert={toggleAlert} />}
+          
         </div>
       </div>
     </div>

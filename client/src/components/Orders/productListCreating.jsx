@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import OrderConfirm from "../Summary/Confirmation"
 import "../Css/ProductListCreating.css";
 import ProductData from "./productData";
 import shirts from "../images/shirts.jpg";
@@ -80,13 +81,16 @@ function ProductListing() {
   ];
 
   const [isSummaryOpen, setIsSummaryOpen] = useState(false);
+  const [confirm, setConfirm]=useState(false);
 
-  // useEffect((e) => {
-  //   e.preventdefault();
-  // }, []);
-  // let setIsSummaryOpen = () => {
-  //   isSummaryOpen(!isSummaryOpen);
-  // };
+  const toggleSummary=()=>{
+    setIsSummaryOpen(!isSummaryOpen)
+  }
+
+  const toggleConfirm=()=>{
+    setConfirm(!confirm)
+  }
+
 
   return (
     <div className="table-content">
@@ -94,24 +98,11 @@ function ProductListing() {
       <table className="table" cellSpacing="25">
         <thead className="table-head">
           <caption>
-            {/* <ul>
-              <li>Product Types</li>
-              <li>Qunatity</li>
-              <li className="washT">Wash-Type</li>
-              <li>Price</li>
-            </ul> */}
             <p className="pro">Product Type</p>
             <p className="quan">Qunatity</p>
             <p className="waT">Wash-Type</p>
             <p className="Pri">Price</p>
           </caption>
-          {/* <tr className="table-row-darkOne" >
-                    <th>Product Types</th>
-                    <th>Qunatity</th>
-                    <th>Wash-Type</th>
-                    <th>Price</th>
-                    <th>Reset</th>
-                    </tr> */}
         </thead>
         <tbody>
           {productsData.map((product, index) => (
@@ -126,10 +117,15 @@ function ProductListing() {
       </table>
       <div className="bootom-button">
         <button className="cancel">Cancel</button>
-        <button className="proceed" onClick={()=>setIsSummaryOpen(true)}>Proceed</button>
+        <button className="proceed" onClick={()=>toggleSummary()}>Proceed</button>
       </div>
 
-      {isSummaryOpen && <SummaryOrder order={orders} />}
+      {isSummaryOpen && <SummaryOrder order={orders} confirmPopup={toggleConfirm} summaryPopup={toggleSummary}/>}
+
+      {confirm && <OrderConfirm handleClick={toggleConfirm}/>}
+
+
+      
     </div>
   );
 }

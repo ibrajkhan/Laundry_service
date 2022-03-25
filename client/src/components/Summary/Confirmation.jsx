@@ -4,9 +4,11 @@ import "./Confirmation.css"
 
 import tick from "../images/tickorder.png"
 
-function OrderConfirm() {
+function OrderConfirm(props) {
     console.log("inside  confirmation popup");
-
+    const goToOrders=()=>{
+      props.handleClick()
+    }
 
   return ( 
     <div className='popup-box'>
@@ -23,7 +25,7 @@ function OrderConfirm() {
     
             <div className='confirmation__message'>You can track the delivery in the "Orders" section</div>
             <div className='button__confirmation'>
-            <Link to ='/orders'><button className = "go__button" >Go To Orders</button></Link>
+            <Link to ='/orders'><button className = "go__button" onClick={goToOrders}>Go To Orders</button></Link>
             </div>
         </div>
     </div>
