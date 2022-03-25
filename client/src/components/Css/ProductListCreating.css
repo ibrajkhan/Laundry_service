@@ -1,0 +1,27 @@
+/* caption {
+  background-color: black;
+  color: #ffffff;
+}
+.table-head > caption > ul > li {
+  display: inline-block;
+  margin-right: 5px;
+} */
+
+.bootom-button {
+  position: absolute;
+  right: 135px;
+}
+.cancel {
+  margin-right: 20px;
+}
+.cancel:hover {
+  background-color: red;
+}
+.proceed {
+  background-color: #5861ae;
+  color: #ffffff;
+}
+.proceed:hover {
+  background-color: #ffffff;
+  color: #5861ae;
+}

@@ -1,0 +1,14 @@
+.middle_body {
+  display: flex;
+  flex-direction: column;
+}
+.Aside {
+  width: 5vw;
+  height: 600px;
+  background-color: #5861ae;
+}
+/* .Existing_orders {
+  position: absolute;
+  left: 50px;
+  top: 100px;
+} */
