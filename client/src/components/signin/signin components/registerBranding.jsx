@@ -16,6 +16,9 @@ function RegisterBranding(){
 
         <Link to='/'><input className='reg-btn' type="submit" value="Sign In" /></Link>
         </div>
+        <div className='rectt'>
+            
+            </div>
         
         </div>
     )

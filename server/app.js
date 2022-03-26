@@ -1,13 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const cors = require('cors');
 //importing Routes
 const orderRoutes = require("./routes/orders");
 const loginRoutes = require("./routes/login");
 
 const app = express();
-app.use(bodyParser()); 
+app.use(bodyParser());
+app.use(cors()) 
 // keys
 const { MONGOURL, SECRETE } = require("./keys");
 

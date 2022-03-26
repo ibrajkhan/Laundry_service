@@ -1,6 +1,5 @@
 .reg-branding{
     width: 26.6%;
-    border-right: 1px solid ;
 }
 .reg-main-heading, .reg-register-button{
     margin-left: 17.31%;
@@ -65,6 +64,7 @@ opacity: 1;
 float: left;
 width: 150px;
 height: 50px;
+margin-top: 20px;
 /* UI Properties */
 border: 2px solid #4552C1;
 border-radius: 4px;
@@ -80,3 +80,17 @@ color: #4552C1;
 opacity: 1;
 }
 
+.rectt{
+    /* Layout Properties */
+    vertical-align: top;
+    margin-left: 99%;
+    margin-top: -350px;
+    width: 2px;
+    height: 183px;
+    border: 1px solid;
+    
+    /* UI Properties */
+    background: #5861AE 0% 0% no-repeat padding-box;
+    box-shadow: 0px -3px 6px #0000000B;
+    opacity: 0.5;
+    }
