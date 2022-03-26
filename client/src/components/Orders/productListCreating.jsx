@@ -91,6 +91,10 @@ function ProductListing() {
     setConfirm(!confirm)
   }
 
+  const handleClick=()=>{
+    toggleSummary()
+  }
+
 
   return (
     <div className="table-content">
@@ -117,12 +121,12 @@ function ProductListing() {
       </table>
       <div className="bootom-button">
         <button className="cancel">Cancel</button>
-        <button className="proceed" onClick={()=>toggleSummary()}>Proceed</button>
+        <button className="proceed" onClick={handleClick}>Proceed</button>
       </div>
 
       {isSummaryOpen && <SummaryOrder order={orders} confirmPopup={toggleConfirm} summaryPopup={toggleSummary}/>}
 
-      {confirm && <OrderConfirm handleClick={toggleConfirm}/>}
+      {confirm && <OrderConfirm orderPopup={toggleConfirm}/>}
 
 
       

@@ -141,7 +141,7 @@ function SummaryOrder(props) {
           <div className="summary__footer">
             <button
               className="submit__button"
-              onClick={()=>handleClick}
+              onClick={handleClick}
             >
               Confirm
             </button>

@@ -7,7 +7,7 @@ import tick from "../images/tickorder.png"
 function OrderConfirm(props) {
     console.log("inside  confirmation popup");
     const goToOrders=()=>{
-      props.handleClick()
+      props.orderPopup()
     }
 
   return ( 

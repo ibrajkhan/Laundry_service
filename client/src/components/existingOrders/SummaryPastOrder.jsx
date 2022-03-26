@@ -85,7 +85,7 @@ function Summary(props) {
             <div className='summary__box'>
                 <div className='summary__header'>
                     Summary
-                    <button className='summary__btn__close' onClick={props.handleSummary()}>x</button>
+                    <button className='summary__btn__close' onClick={props.handleSummary}>x</button>
                 </div>
                 <div className='summary__storeinfo'>
                     <div className='store__detail'>
@@ -216,7 +216,7 @@ function Summary(props) {
 
                 <div className='summary__footer'>
 
-                    <button className="cancel__button" onClick={()=>handleClick}>Cancel order</button>
+                    <button className="cancel__button" onClick={handleClick}>Cancel order</button>
                 </div>
                 
 

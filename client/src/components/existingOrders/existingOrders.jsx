@@ -110,6 +110,9 @@ const ExistingOrders = () => {
   const toggleSummary =()=>{
     setIsSummaryOpen(!isSummaryOpen)
   }
+  const handleClick=()=>{
+    toggleSummary()
+  }
   const count = 7;
   const tableHeadings = [
     "Order id",
@@ -170,7 +173,7 @@ const ExistingOrders = () => {
                         </button>
                       </td>
                       <td>
-                        <button onClick={()=>setIsSummaryOpen(true)}><img className="view" src={eye}  alt="view"></img></button>
+                        <button onClick={handleClick}><img className="view" src={eye}  alt="view"></img></button>
                       </td>
                     </tr>
                     
@@ -179,8 +182,9 @@ const ExistingOrders = () => {
               </tbody>
             </table>
           </div>
-          {alertIsOpen && <Alert handleClose={toggleAlert}/>}
+        
           {isSummaryOpen && <Summary order={products} handleSummary={toggleSummary} handleAlert={toggleAlert} />}
+          {alertIsOpen && <Alert handleClose={toggleAlert}/>}
           
         </div>
       </div>
