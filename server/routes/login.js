@@ -43,10 +43,11 @@ router.post("/register", async (req, res) => {
 });
 
 // Signin
-router.post("/signin",async (req, res) => {
+router.post("/",async (req, res) => {
     console.log(req.body);
     try {
       const { email, phone, password } = req.body;
+      console.log(email,password);
       var exist = email;
       if (email) {
         const Email = await User.findOne({ email: email });
@@ -73,7 +74,7 @@ router.post("/signin",async (req, res) => {
           var token = jwt.sign(
             {
               exp: Math.floor(Date.now() / 1000) + 60 * 60,
-              data: exist._id,
+              data: String(exist._id)
             },
             SECRETE
           );

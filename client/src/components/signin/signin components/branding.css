@@ -53,6 +53,7 @@ opacity: 1;
     /* Layout Properties */
 width: 150px;
 height: 50px;
+margin-top: 20px;
 /* UI Properties */
 border: 2px solid #4552C1;
 border-radius: 4px;
@@ -78,8 +79,9 @@ opacity: 1;
 }
 .rect{
 /* Layout Properties */
-float: initial;
+vertical-align: top;
 margin-left: 99%;
+margin-top: -300px;
 width: 2px;
 height: 183px;
 border: 1px solid;

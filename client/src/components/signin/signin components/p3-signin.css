@@ -1,6 +1,7 @@
 .p3-signin-component{
     width: 50%;
     
+    /* Layout Properties */
 height: 600px;
 /* UI Properties */
 background: #B9C0FD1A 0% 0% no-repeat padding-box;
@@ -69,6 +70,8 @@ opacity: 1;
 .p3-signin-btn{
     float: left;
     /* Layout Properties */
+
+border-radius: 5px;
 margin-top: 100px;
 margin-left: 50px;
 width: 150px;
@@ -85,3 +88,4 @@ letter-spacing: 0.3px;
 color: #FFFFFF;
 opacity: 1;
 }
+

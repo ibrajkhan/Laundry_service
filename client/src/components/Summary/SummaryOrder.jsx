@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import './SummaryOrder.css'
 import OrderConfirm from "./Confirmation"
+import axios from "axios";
 
 function SummaryOrder(props) {
-  console.log(props.order);
+  console.log(props.totalDetails);
+  const totalCost=props.totalDetails.map((item)=>item.selected.price).reduce((prev,curr)=> prev+curr,0)
+  const totalQunatity =props.totalDetails.map((item)=>item.selected.quantity).reduce((prev,curr)=> parseInt(prev)+parseInt(curr),0)
+  const article = [];
+  props.totalDetails.forEach((member) => {
+    article.push({ producttype: member.product, ...member.selected });
+  });
+  
+
   const [storeNo, setStoreNo] = useState("");
   const [storeAddress, setStoreAddress] = useState("");
   const [disabled, setDisabled] = useState(true);
@@ -12,41 +21,78 @@ function SummaryOrder(props) {
   const washPrice = [];
   const Price = [];
 
-  props.order.forEach((product) => {
+  props.totalDetails.forEach((product) => {
     let wash = "";
     let price = 0;
-    console.log(product);
-    if (product.washing === true) {
+    //console.log(product);
+    if (product.selected.wash === true) {
       wash += "Washing  ";
       price += 20;
-      console.log(price);
+       console.log(price);
     }
-    if (product.ironing === true) {
+    if (product.selected.iron === true) {
       wash += "Ironing  ";
       price += 15;
       console.log(price);
     }
-    if (product.chemicalwash === true) {
-      wash += "Chemical wash  ";
-      price += 25;
-      console.log(price);
-    }
-    if (product.drywash === true) {
-      wash += "Dry wash  ";
+    if (product.selected.fold === true) {
+      wash += "Folding  ";
       price += 10;
       console.log(price);
     }
-    Price.push(product.quantity * price);
+    if (product.selected.checmicalWash === true) {
+      wash += "ChemicalWashing  ";
+      price += 25;
+      console.log(price);
+    }
+    Price.push(product.selected.quantity * price);
     washType.push(wash);
     washPrice.push(price);
   });
+  
 
   const handleForm = () => {
     setStoreNo("+91 9999999999");
     setStoreAddress("Near phone Booth, 10th road");
     setDisabled(false);
-  };    
-    const handleClick =()=>{
+  }; 
+  function getToken(){
+    if(window.localStorage){
+      return localStorage.getItem("token")
+    }
+    return ""
+  }
+  async function handleClick() {
+    
+      const totalprice = totalCost;
+      const totalitems = totalQunatity;
+      const productlist = article;
+      console.log(productlist, totalprice, totalitems)
+      try {
+        console.log(getToken())
+        const response = await fetch("http://localhost:5000/order",{
+          method: 'POST',
+          mode: 'cors',
+          //cache: 'no-cache',
+          //credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+            authorization: `test ${getToken()}`
+          },
+          body: JSON.stringify({
+          totalprice,
+          productlist,
+          totalitems,
+          })
+        })
+        const data=await response.json()
+        console.log(data)
+        
+      } catch (error) {
+        console.log(error)
+      }
+      
+      
       props.confirmPopup()
       props.summaryPopup()
     }
@@ -91,15 +137,15 @@ function SummaryOrder(props) {
             <h4>Order Details</h4>
             <table className="summary__table">
               <tbody>
-                {props.order.map((product, index) => {
-                  return (
+                {props.totalDetails.length > 0 && props.totalDetails.map((item, index) => {
+                    return (
                     <tr key={index}>
                       <td className="product__type">
-                        {product.productType} {props.canCancel}
+                        {item.productType} 
                       </td>
                       <td className="product__washtype">{washType[index]}</td>
                       <td className="price__calculation">
-                        {product.quantity} x {washPrice[index]}
+                        {item.selected.quantity} x {washPrice[index]}
                       </td>
                       <td className="product__price">{Price[index]}</td>
                     </tr>
@@ -110,7 +156,7 @@ function SummaryOrder(props) {
                   <td />
                   <td>Sub total:</td>
                   <td style={{ fontWeight: "bold" }}>
-                    {props.order.totalPrice}
+                    {totalCost}
                   </td>
                 </tr>
                 <tr>
@@ -123,7 +169,7 @@ function SummaryOrder(props) {
                   <td />
                   <td />
                   <td>Total:</td>
-                  <td>Rs {props.order.totalPrice + 90}</td>
+                  <td>Rs {totalCost + 90}</td>
                 </tr>
               </tbody>
             </table>
@@ -141,7 +187,7 @@ function SummaryOrder(props) {
           <div className="summary__footer">
             <button
               className="submit__button"
-              onClick={handleClick}
+              onClick={handleClick} disabled={disabled}
             >
               Confirm
             </button>

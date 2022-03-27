@@ -1,29 +1,26 @@
-const mongoose=require('mongoose')
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const {Schema}=mongoose
-
-//washType
-const products = new Schema({    
-        quantity:{type:Number,default:0},
-        washing: { type: Boolean, default: false },
-        ironing: { type: Boolean, default: false },
-        drywash: { type: Boolean, default: false },
-        chemicalwash: { type: Boolean, default: false },
-        price:{type:Number}  
-})
-
-//Order
-const orderSchema = new Schema({
-    userId :  {type:Schema.Types.ObjectId,ref:'User'}, 
-    shirts:[products],
-    Tshirts:[products],
-    trouncers:[products],
-    jeans:[products],
-    joggers:[products],
-    boxers:[products],
-    others:[products],
-    totalPrice:{type:Number},
-    totalItems:{type:Number},
+const orderschema = new Schema({
+    userId :  {type:Schema.Types.ObjectId,ref:'User'},
+    dateOrdered: {
+        type: String,
+    },
+    productlist: [{
+        producttype: { type: String },
+        quantity: { type: Number, default: 0 },
+        wash: { type: String, default: false },
+        iron: { type: String, default: false },
+        fold: { type: String, default: false },
+        pack: { type: String, default: false },
+        price: { type: Number, default: 0 },
+    }, ],
+    totalprice: {
+        type: Number,
+    },
+    totalitems: {
+        type: Number,
+    },
     storelocation: {
         type: String,
         default: "Jp nagar",
@@ -40,10 +37,6 @@ const orderSchema = new Schema({
         type: String,
         default: "Ready to pickup",
     },
-    //date:{type:Date,default:Date.now()}
-},{timestamps:true})
-
-
-const Order= mongoose.model('Order',orderSchema)
-
-module.exports=Order;
+});
+const order = mongoose.model("order", orderschema);
+module.exports = order;

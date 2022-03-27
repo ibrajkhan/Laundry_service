@@ -15,9 +15,9 @@ function Branding(){
         <p className="account">Don't Have An Account?</p>
         <Link to='/register'><input className='btn' type="submit" value="Register" /></Link>
         </div>
-        {/* <div className='rect'>
+        <div className='rect'>
             
-        </div> */}
+        </div>
         
         </div>
     )

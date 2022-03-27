@@ -8,8 +8,59 @@ import { useThemeProps } from '@mui/material'
 
 function Alert(props) {
     const goToPast=()=>{
-        props.handleClose()
+        
     }
+    function getToken(){
+        if(window.localStorage){
+          return localStorage.getItem("token")
+        }
+        return ""
+      }
+    let id =props.orderNo._id
+    
+    async function statusChaning(){
+        try {
+            //   
+                  console.log(getToken())
+                  const response = await fetch(`http://localhost:5000/order/${id}`,{
+                    method: 'PUT',
+                    mode: 'cors',
+                    //cache: 'no-cache',
+                    //credentials: 'same-origin',
+                    headers: {
+                      'Content-Type': 'application/json',
+                      authorization: `test ${getToken()}`
+                    }
+                    
+                  })
+                  const data = await response.json();
+                  console.log(data)
+                  props.handleClose()
+                  window.location.href = '/orders';
+                  // console.log("enter after fetch")
+                  if (!data.status === 200) {
+                      const error = new Error(response.error);
+                      throw error;
+                  }        
+           
+          
+            }  catch (error) {
+            console.log(error)
+        }
+        
+    }
+    // const updateStatus = () => {
+    //     axios.put(`/orders/${id}`, {})
+    //         .then(res => {
+    //             console.log(res);
+    //             console.log("alert closed");
+    //             closeAlert();
+    //             // window.location.href = '/orders'
+    //             <Redirect to="/orders"></Redirect>
+    //         })
+    //         .catch(err => console.log(err)
+    //     );
+    // }
 
     return (
         <div className='popup-box'>
@@ -31,7 +82,7 @@ function Alert(props) {
                         </p>
 
                         <div >
-                            <Link to="/orders"><button onClick={goToPast}>Proceed </button></Link>
+                            <Link to="/orders"><button onClick={()=>statusChaning()}>Proceed </button></Link>
                         </div>
                     </div>
                 </div>

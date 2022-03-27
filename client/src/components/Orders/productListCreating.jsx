@@ -10,12 +10,23 @@ import trouses from "../images/trouses.jpg";
 import joggers from "../images/joggers.jpg";
 import others from "../images/others.jpg";
 import SummaryOrder from "../Summary/SummaryOrder";
+let totalDetails=[]
+const producthistory ={assign: new Map()}
 
 function ProductListing() {
+  function Details(props){
+    producthistory.assign.set(props.productType,props.selected)
+    totalDetails =[...producthistory.assign].map(([productType,selected])=>({
+      productType,
+      selected
+    }));
+    //console.log(totalDetails)
+    return;
+  }
   const productsData = [
     {
       img: shirts,
-      title: "Shirt",
+      title: "shirts",
       descp: "Shirts for Laundry",
     },
     {
@@ -50,35 +61,7 @@ function ProductListing() {
     },
   ];
 
-  const orders = [
-    {
-      productType: "Shirts",
-      quantity: 15,
-      totalPrice: 50,
-      washing: true,
-      ironing: true,
-      chemicalwash: true,
-      drywash: true,
-    },
-    {
-      productType: "Tshirt",
-      quantity: 15,
-      totalPrice: 50,
-      washing: true,
-      ironing: true,
-      chemicalwash: true,
-      drywash: true,
-    },
-    {
-      productType: "trouser",
-      quantity: 15,
-      totalPrice: 50,
-      washing: true,
-      ironing: true,
-      chemicalwash: true,
-      drywash: true,
-    },
-  ];
+  
 
   const [isSummaryOpen, setIsSummaryOpen] = useState(false);
   const [confirm, setConfirm]=useState(false);
@@ -115,6 +98,7 @@ function ProductListing() {
               title={product.title}
               descp={product.descp}
               key={index}
+              detailer={Details}
             />
           ))}
         </tbody>
@@ -124,7 +108,8 @@ function ProductListing() {
         <button className="proceed" onClick={handleClick}>Proceed</button>
       </div>
 
-      {isSummaryOpen && <SummaryOrder order={orders} confirmPopup={toggleConfirm} summaryPopup={toggleSummary}/>}
+      {isSummaryOpen && <SummaryOrder  confirmPopup={toggleConfirm} summaryPopup={toggleSummary}
+      totalDetails={totalDetails} />}
 
       {confirm && <OrderConfirm orderPopup={toggleConfirm}/>}
 

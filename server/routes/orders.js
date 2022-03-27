@@ -12,45 +12,29 @@ const Products = require("../models/orderSchema");
 
 //Creating Order
 
-router.post("/", async (req, res) => {
+router.post("/", async function(req, res) {
   try {
-    const {
-      totalPrice,
-      totalItems,
-      shirts,
-      Tshirts,
-      trouncers,
-      jeans,
-      joggers,
-      boxers,
-      others,
-    } = req.body;
-    const Order = await Products.create({      
-      totalItems,
-      totalPrice,
-      dataOrdered: dayjs().format("dddd, MMM D, h:mm A"),
-      userId: req.user,
-      shirts,
-      Tshirts,
-      trouncers,
-      jeans,
-      boxers,
-      joggers,
-      others,
-    });
-    return res.status(200).json({
-      status: "success",
-      message: "Order Sucessfully",
-      Order,
-    });
+      const { totalitems, totalprice, productlist, status } = req.body;
+      const Orders = await Products.create({
+          totalitems,
+          totalprice,
+          dateOrdered: dayjs().format("dddd, MMM D, h:mm A"),
+          productlist,
+          userId: req.user,
+      });
+      console.log(Orders)
+      return res.json({
+          status: "success",
+          message: "Order Succesfull",
+          Orders,
+      });
   } catch (e) {
-    res.status(500).json({
-      status: "Order Not Created",
-      error: e.message,
-    });
+      res.status(500).json({
+          status: "order Not created",
+          error: e.message,
+      });
   }
 });
-
 // geting particular order  details (summary)
 router.get("/:id", async (req, res) => {
   try {
@@ -98,11 +82,13 @@ router.put("/:id", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const Orders = await Products.find({ userId: req.user });
+    const orders = await Products.find({userId:req.user});
+    console.log(orders)
     return res.status(200).json({
       status: "Sucess",
-      date: Orders,
+      orders,
     });
+    
   } catch (e) {
     return res.status(500).json({
       status: "Failed",

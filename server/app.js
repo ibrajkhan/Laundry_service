@@ -1,13 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const cors = require('cors');
 //importing Routes
 const orderRoutes = require("./routes/orders");
 const loginRoutes = require("./routes/login");
 
 const app = express();
-app.use(bodyParser()); 
+app.use(bodyParser.json());
+app.use(cors()) 
 // keys
 const { MONGOURL, SECRETE } = require("./keys");
 
@@ -21,7 +23,11 @@ db.once("open", function () {
   console.log("Connected successfully");
 });
 app.use("/order", (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  //console.log(req.headers.authorization)
   var token = req.headers.authorization.split("test ")[1];
+  console.log(token)
+  //console.log(token)
   if (!token) {
     return res.status(401).json({
       status: "failed",
