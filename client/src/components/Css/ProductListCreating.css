@@ -1,0 +1,25 @@
+.bootom-button {
+  position: absolute;
+  right: 135px;
+}
+.cancel {
+  margin-right: 20px;
+  border: 1px solid red;
+  padding: 10px 20px;
+  border-radius: 6px;
+}
+.cancel:hover {
+  background-color: red;
+  color: #ffff;
+}
+.proceed {
+  background-color: #5861AE;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1px solid;
+}
+.proceed:hover {
+  background-color: #FFFFFF;
+  color: #5861AE;
+}

@@ -1,0 +1,93 @@
+.branding{
+    width: 50%;
+}
+.main-heading, .branding-register-button{
+    margin-left: 150px; 
+}
+.brand{
+    margin-top: 100px;
+width: 411px;
+height: 257px;
+text-align: left;
+font: normal normal 900 100px/120px Avenir;
+letter-spacing: 0px;
+color: #5861AE;
+text-transform: capitalize;
+opacity: 1;
+}
+.caption{
+    /* Layout Properties */
+top: 501px;
+
+width: 335px;
+height: 27px;
+/* UI Properties */
+text-align: left;
+font: normal normal normal 20px/26px Avenir;
+letter-spacing: 0.8px;
+color: #565657;
+text-transform: capitalize;
+opacity: 1;
+}
+.branding-register-button{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+.account{
+    top: 602px;
+
+width: 189px;
+height: 22px;
+text-align: left;
+font: normal normal normal 16px/26px Avenir;
+letter-spacing: 0.64px;
+color: #565657;
+text-transform: capitalize;
+opacity: 1;
+}
+
+.btn{
+    float: left;
+    /* Layout Properties */
+width: 150px;
+height: 50px;
+margin-top: 20px;
+/* UI Properties */
+border: 2px solid #4552C1;
+border-radius: 4px;
+text-align: center;
+font: normal normal bold 15px/20px Open Sans;
+letter-spacing: 0.3px;
+color: #4552C1;
+opacity: 1;
+}
+.reg-link{
+    /* Layout Properties */
+    text-decoration: none;
+top: 654px;
+left: 195px;
+width: 64px;
+height: 20px;
+/* UI Properties */
+text-align: center;
+font: normal normal bold 15px/20px Open Sans;
+letter-spacing: 0.3px;
+color: #4552C1;
+opacity: 1;
+}
+.rect{
+/* Layout Properties */
+vertical-align: top;
+margin-left: 99%;
+margin-top: -300px;
+width: 2px;
+height: 183px;
+border: 1px solid;
+
+/* UI Properties */
+background: #5861AE 0% 0% no-repeat padding-box;
+box-shadow: 0px -3px 6px #0000000B;
+opacity: 0.5;
+}

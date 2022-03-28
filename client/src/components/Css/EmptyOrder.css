@@ -1,0 +1,32 @@
+.Outer {
+  height: 78vh;
+}
+
+.currentOrder {
+  margin-left: -400px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.paraBtn {
+  margin-top: 180px;
+  margin-right: -700px;
+}
+.noOrder {
+  color: rgb(151, 151, 151);
+  margin-bottom: 12px;
+}
+button {
+  color: #5861ae;
+  padding: 8px 22px;
+  border: 1px solid #5861ae;
+  border-radius: 5px;
+}
+button:hover {
+  color: #ffffff;
+  background-color: #5861ae;
+}
+.Search {
+  position: absolute;
+  top: 80px;
+  right: 50px;
+}

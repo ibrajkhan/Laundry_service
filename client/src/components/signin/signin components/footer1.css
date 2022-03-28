@@ -1,0 +1,107 @@
+.referal-component{
+    /* Layout Properties */
+height: 80px;
+/* UI Properties */
+background: #F8F9FF 0% 0% no-repeat padding-box;
+box-shadow: 0px -3px 6px #0000000B;
+opacity: 1;
+border-bottom: 1px solid;
+display: flex; 
+justify-content: center;
+flex-direction: column;
+align-items: center;
+
+}
+.reference{
+    /* Layout Properties */
+width: 519px;
+height: 33px;
+/* UI Properties */
+font: normal normal 600 24px/26px Open Sans;
+letter-spacing: 0.96px;
+color: #5861AE;
+opacity: 1;
+}
+.ref-cap{
+    /* Layout Properties */
+
+width: 183px;
+height: 14px;
+
+/* UI Properties */
+font: italic normal normal 10px/26px Open Sans;
+letter-spacing: 0.4px;
+color: #3D3D43;
+opacity: 1;
+}
+.details{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+
+    /* top: 930px;
+left: 0px;
+width: 1440px; */
+height: 197px;
+ background: transparent url('../images/Footer.jpg') 100% 100% no-repeat padding-box; 
+opacity: 1;
+}
+
+.about,.foo1-navbar,.socialmedia{
+    margin-top: 20px;
+}
+.about{
+    margin-left: 50px;
+
+}
+.foo1-navbar{
+    display: flex;
+
+    justify-content: center;
+}
+
+.foot-head1{
+    /* Layout Properties */
+    float: left;
+height: 25px;
+/* UI Properties */
+text-align: center;
+font: normal normal medium 18px/24px Avenir;
+letter-spacing: 0.18px;
+color: #182838;
+text-transform: uppercase;
+opacity: 1;
+}
+
+.info-cap{
+    float: left;
+height: 20px;
+text-align: left;
+font: normal normal normal 15px/20px Avenir;
+letter-spacing: 0.6px;
+color: #3D3D43;
+text-transform: capitalize;
+opacity: 1;
+}
+.foot-head2{
+
+width: 44px;
+height: 22px;
+text-align: center;
+font: normal normal medium 16px/24px Avenir;
+letter-spacing: 0.16px;
+color: #182838;
+text-transform: capitalize;
+opacity: 1;
+}
+/* .nav{
+    padding: 0px 20px;
+} */
+.images{
+    margin-right: 15px;
+}
+
+.socialmedia{
+    margin-left: 50px;
+}

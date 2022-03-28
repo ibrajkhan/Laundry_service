@@ -1,0 +1,74 @@
+.popup-box{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0,0.15);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation__box{
+    box-sizing: border-box;
+    height: 470px;
+    width: 456px;
+    background-color: #fff;
+    padding: 62px 100px;
+}
+
+.box__image{
+    border-radius: 50%;
+}
+
+.tick{
+    width: 120px;
+    height: 120px;
+}
+
+.confirmation__header{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    min-height: 20px;
+    color: white;
+    margin-bottom: 28px;
+}
+
+.confirmation__content{
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+    height: 200px;
+}
+
+.confirmation__title{
+    font-size: 24px;
+    font-weight: bold;
+    color: #0A1F44;
+    letter-spacing: 0.43px;
+    margin-bottom: 24px;
+    line-height: 1.8rem;
+}
+
+.confirmation__message{
+    font: normal normal normal 17px/22px;
+letter-spacing: -0.41px;
+color: #0A1F44;
+opacity: 1;
+margin-bottom: 33px;
+}
+
+.go__button{
+    background: #5861AE 0% 0% no-repeat padding-box;
+border-radius: 22px;
+opacity: 1;
+width: 235px;
+height: 44px;
+color: white;
+}
+
+.go__button:hover{
+    cursor: pointer;
+}

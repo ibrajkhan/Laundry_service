@@ -1,0 +1,96 @@
+.reg-branding{
+    width: 26.6%;
+}
+.reg-main-heading, .reg-register-button{
+    margin-left: 17.31%;
+}
+.reg-main-heading{
+    margin-bottom: 150px;
+}
+.reg-brand{ 
+/* Layout Properties */
+margin-top: 150px;
+left: 69px;
+width: 284px;
+height: 197px;
+/* UI Properties */
+text-align: left;
+font: normal normal 900 62px/80px Avenir;
+letter-spacing: 2.48px;
+color: #5861AE;
+text-transform: capitalize;
+opacity: 1;
+
+
+}
+.reg-caption{
+/* Layout Properties */
+top: 513px;
+left: 72px;
+width: 175px;
+height: 59px;
+/* UI Properties */
+text-align: left;
+font: normal normal normal 20px/32px Avenir;
+letter-spacing: 0.8px;
+color: #565657;
+text-transform: capitalize;
+opacity: 1;
+}
+.reg-register-button{
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+.reg-account{
+/* Layout Properties */
+top: 712px;
+left: 72px;
+width: 171px;
+height: 22px;
+/* UI Properties */
+text-align: left;
+font: normal normal normal 16px/26px Avenir;
+letter-spacing: 0.64px;
+color: #565657;
+text-transform: capitalize;
+opacity: 1;
+}
+
+.reg-btn{
+    /* Layout Properties */
+float: left;
+width: 150px;
+height: 50px;
+margin-top: 20px;
+/* UI Properties */
+border: 2px solid #4552C1;
+border-radius: 4px;
+opacity: 1;
+    /* Layout Properties */
+    text-decoration: none;
+
+/* UI Properties */
+text-align: center;
+font: normal normal bold 15px/20px Open Sans;
+letter-spacing: 0.3px;
+color: #4552C1;
+opacity: 1;
+}
+
+.rectt{
+    /* Layout Properties */
+    vertical-align: top;
+    margin-left: 99%;
+    margin-top: -350px;
+    width: 2px;
+    height: 183px;
+    border: 1px solid;
+    
+    /* UI Properties */
+    background: #5861AE 0% 0% no-repeat padding-box;
+    box-shadow: 0px -3px 6px #0000000B;
+    opacity: 0.5;
+    }

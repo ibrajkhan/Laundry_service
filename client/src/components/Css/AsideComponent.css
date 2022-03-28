@@ -1,0 +1,14 @@
+.aside__icon {
+  display: flex;
+  flex-direction: column;
+  height: 78vh;
+  background-color: #5861ae;
+}
+.aside__icon div {
+  margin-top: 30px; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.aside__icon div:hover {
+  background-color: #ffffff;
+}

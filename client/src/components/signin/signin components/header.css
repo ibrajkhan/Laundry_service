@@ -1,0 +1,114 @@
+.page-header{
+
+
+/* Layout Properties */
+top: 0px;
+left: 0px;
+width: auto;
+height: 80px;
+/* UI Properties */
+background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 0px 2px 48px #0000000F;
+opacity: 1;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+/* .list{
+    list-style: none;
+    display : inline-block;
+}
+.list-item{
+    padding: 0px 10px;
+    border: 0px 1px solid;
+} */
+.heading{
+    /* Layout Properties */
+/* padding-top: 30px; */
+margin-left: 119px;
+width: 108px;
+height: 27px;
+/* UI Properties */
+text-align: left;
+font: normal normal 900 20px/27px Avenir;
+letter-spacing: 1.8px;
+color: #5861AE;
+text-transform: uppercase;
+opacity: 1;
+}
+.list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.list-element{
+    /* Layout Properties */
+border-left: 1px solid gainsboro;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 113px;
+height: 80px;
+/* UI Properties */
+background: #FFFFFF 0% 0% no-repeat padding-box;
+opacity: 1;
+text-decoration: none;
+/* UI Properties */
+vertical-align: middle;
+text-align: center;
+font: normal normal normal 14px/19px Avenir;
+letter-spacing: 1.05px;
+color: #565657;
+text-transform: capitalize;
+}
+/* .link{ */
+/* Layout Properties */
+
+/* width: 46px;
+height: 19px;
+text-decoration: none; */
+/* UI Properties */
+/* vertical-align: middle;
+text-align: center;
+font: normal normal normal 14px/19px Avenir;
+letter-spacing: 1.05px;
+color: #565657;
+text-transform: capitalize;
+opacity: 1;
+} */
+.list-element-signin{
+        /* Layout Properties */
+display: flex;
+align-items: center;
+justify-content: center;
+width: 113px;
+height: 80px;
+/* UI Properties */
+background: #5861AE 0% 0% no-repeat padding-box;
+box-shadow: 0px 3px 6px #00000029;
+    /* Layout Properties */
+    text-decoration: none;
+/* UI Properties */
+text-align: center;
+font: normal normal medium 14px/19px Avenir;
+letter-spacing: 1.05px;
+color: #FFFFFF;
+text-transform: capitalize;
+opacity: 1
+}
+/* .link-signin{ */
+    /* Layout Properties */
+    /* text-decoration: none; */
+/* UI Properties */
+/* text-align: center;
+font: normal normal medium 14px/19px Avenir;
+letter-spacing: 1.05px;
+color: #FFFFFF;
+text-transform: capitalize;
+opacity: 1;
+} */
+
+
+

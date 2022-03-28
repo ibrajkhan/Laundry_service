@@ -1,0 +1,10 @@
+.middle_body {
+  display: flex;
+  flex-direction: column;
+}
+.Aside {
+  width: 5vw;
+  height: auto;
+  background-color: #5861ae;
+}
+

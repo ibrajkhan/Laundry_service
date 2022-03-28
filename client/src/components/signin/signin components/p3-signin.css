@@ -1,0 +1,91 @@
+.p3-signin-component{
+    width: 50%;
+    
+    /* Layout Properties */
+height: 600px;
+/* UI Properties */
+background: #B9C0FD1A 0% 0% no-repeat padding-box;
+opacity: 1;
+}
+.p3-sign-in{
+/* Layout Properties */
+margin-top: 100px;
+margin-left: 100px; 
+
+height: 44px;
+/* UI Properties */
+text-align: left;
+font: normal normal medium 32px/60px Avenir;
+letter-spacing: 1.28px;
+color: #4552C1;
+text-transform: uppercase;
+opacity: 1;
+}
+
+.p3-signin-forms{
+    margin-left: 100px; 
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+
+.p3-form-name{
+margin-top: 50px;
+width: 322px;
+height: 14px;
+text-align: left;
+font: normal normal normal 12px/15px Open Sans;
+letter-spacing: 0.42px;
+color: #5861AE;
+opacity: 1;
+}
+.p3-forms{
+    border: none;
+    border-bottom: 1px solid #5861AE;
+    
+width: 322px;
+height: 22px;
+text-align: left;
+font: normal normal 600 17px/27px Open Sans;
+letter-spacing: 0.6px;
+color: #424548;
+opacity: 1;
+}
+
+.p3-passsword-verify{
+    /* Layout Properties */
+text-decoration: none;
+margin-left: 200px;
+width: 140px;
+height: 22px;
+/* UI Properties */
+text-align: left;
+font: normal normal medium 16px/26px Avenir;
+letter-spacing: 0.64px;
+color: #4552C1;
+text-transform: capitalize;
+opacity: 1;
+}
+
+.p3-signin-btn{
+    float: left;
+    /* Layout Properties */
+
+border-radius: 5px;
+margin-top: 100px;
+margin-left: 50px;
+width: 150px;
+height: 50px;
+/* UI Properties */
+background: #5861AE 0% 0% no-repeat padding-box;
+
+/* Layout Properties */
+
+/* UI Properties */
+text-align: center;
+font: normal normal bold 15px/20px Open Sans;
+letter-spacing: 0.3px;
+color: #FFFFFF;
+opacity: 1;
+}
+
