@@ -7,9 +7,7 @@ import { useThemeProps } from '@mui/material'
 
 
 function Alert(props) {
-    const goToPast=()=>{
-        
-    }
+
     function getToken(){
         if(window.localStorage){
           return localStorage.getItem("token")

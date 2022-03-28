@@ -1,5 +1,5 @@
 //import Alert from "./AlertOrder"
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import '../Summary/SummaryOrder.css'
 
 
@@ -11,7 +11,7 @@ function Summary(props) {
     const washType = []
     const washPrice = []
     const Price = []
-    console.log(props.order.status);
+    console.log(props.order);
     props.order.status = "Ready to Pickup"
     let status_order = { "Ready to Pickup": false, "Picked up": false, "In Washing": false, "Washed": false, "In Ironing": false, "Ironed": false, "in Delivery": false, "Delivered": false }
     for (let x in status_order) {
@@ -33,29 +33,32 @@ function Summary(props) {
         showButton = false
     }
 
-    props.order.forEach(product => {
-        let wash = ""
-        let price = 0
-        if (product.washing === true) {
-            wash += "Washing  "
-            price += 10
-        }
-        if (product.ironing === true) {
-            wash += "Ironing  "
-            price += 15
-        }
-        if (product.chemicalwash === true) {
-            wash += "Chemical wash  "
-            price += 10
-        }
-        if (product.drywash === true) {
-            wash += "Dry wash  "
-            price += 25
-        }
-        Price.push(product.quantity * price)
-        washType.push(wash)
-        washPrice.push(price)
+    props.order.productlist.forEach(product => {
+      //console.log()
+      let type="";
+      let cost=0;
+      if(product.wash == "true"){
+          type+="washing ";
+          cost+=20
+      }
+      if(product.iron == "true"){
+        type+="ironing ";
+        cost+=15
+    }
+    if(product.fold == "true"){
+        type+="folding ";
+        cost+=10
+    }
+    if(product.pack == "true"){
+        type+="packing ";
+        cost+=25
+    }
+    Price.push(product.quantity * cost)
+    washType.push(type)
+    washPrice.push(cost)
     });
+
+    console.log(washType)
 
 
     let circleStyle = {
@@ -161,11 +164,11 @@ function Summary(props) {
                     <h4>Order Details</h4>
                     <table className='summary__table'>
                         <tbody>
-                            {props.order.map((product, index) => {
+                            {props.order.productlist.map((product, index) => {
                                 return (
                                     <tr key={index}>
                                         <td className='product__type'>
-                                            {product.productType} {props.canCancel}
+                                            {product.productType} 
                                         </td>
                                         <td className='product__washtype'>
                                             {washType[index]}
@@ -182,7 +185,7 @@ function Summary(props) {
                             <tr>
                                 <td /><td />
                                 <td>Sub total:</td>
-                                <td style={{ fontWeight: "bold" }}>{props.order.totalPrice}
+                                <td style={{ fontWeight: "bold" }}>{props.order.totalprice}
                                 </td>
                             </tr>
                             <tr>
@@ -194,7 +197,7 @@ function Summary(props) {
                                 <td>
                                     Total:
                                 </td>
-                                <td>Rs {props.order.totalPrice + 90}</td>
+                                <td>Rs {props.order.totalprice + 90}</td>
                             </tr>
                         </tbody>
                     </table>

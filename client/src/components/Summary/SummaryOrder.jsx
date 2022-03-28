@@ -9,7 +9,8 @@ function SummaryOrder(props) {
   const totalQunatity =props.totalDetails.map((item)=>item.selected.quantity).reduce((prev,curr)=> parseInt(prev)+parseInt(curr),0)
   const article = [];
   props.totalDetails.forEach((member) => {
-    article.push({ producttype: member.product, ...member.selected });
+    console.log(member)
+    article.push({ productType: member.productType, ...member.selected });
   });
   
 

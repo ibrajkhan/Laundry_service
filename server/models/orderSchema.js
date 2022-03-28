@@ -7,7 +7,7 @@ const orderschema = new Schema({
         type: String,
     },
     productlist: [{
-        producttype: { type: String },
+        productType: { type: String },
         quantity: { type: Number, default: 0 },
         wash: { type: String, default: false },
         iron: { type: String, default: false },

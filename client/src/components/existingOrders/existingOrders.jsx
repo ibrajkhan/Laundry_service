@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import SearchComponent from "../SerchComponent";
+import { Link } from 'react-router-dom';
 import "./existingOrders.css";
 import eye from "../images/eye.png"
 import Summary from "./SummaryPastOrder"
@@ -84,9 +85,13 @@ const ExistingOrders = () => {
   const toggleSummary =()=>{
     setIsSummaryOpen(!isSummaryOpen)
   }
-  const handleClick=()=>{
+  const handleClick=(order)=>{
+    console.log(order)
+    setCurrOrder(order)
     toggleSummary()
   }
+
+
 
   //const count = 7;
   const tableHeadings = [
@@ -110,7 +115,7 @@ const ExistingOrders = () => {
             <label>Orders | {orderCount}</label>
           </div>
           <div className="button-mid">
-            <button>Create</button>
+            <Link to='/order'><button>Create</button></Link>
           </div>
           <div className="search">
             <SearchComponent></SearchComponent>
@@ -141,7 +146,7 @@ const ExistingOrders = () => {
                       <td>{order.storephone}</td>
                       <td>{order.totalitems}</td>
                       <td className="price">{order.totalprice}</td>
-                      <td>{order.status}</td>
+                      <td>{order.status }</td>
                       <td>
                         <button className="table__button cancel" onClick={()=>{alertCancel(order)
                          toggleAlert()}}>
@@ -149,7 +154,8 @@ const ExistingOrders = () => {
                         </button>
                       </td>
                       <td>
-                        <button onClick={handleClick}><img className="view" src={eye}  alt="view"></img></button>
+                        <img className="view" src={eye}  alt="view" onClick={()=>handleClick(order) }></img>
+                        
                       </td>
                     </tr>
                     
@@ -159,7 +165,7 @@ const ExistingOrders = () => {
             </table>
           </div>
         
-          {isSummaryOpen && <Summary handleSummary={toggleSummary} handleAlert={toggleAlert} order={orders} />}
+          {isSummaryOpen && <Summary handleSummary={toggleSummary} handleAlert={toggleAlert} order={currOrder} />}
           {alertIsOpen && <Alert handleClose={toggleAlert} orderNo={currOrder}/>}
           
         </div>
@@ -174,4 +180,4 @@ const ExistingOrders = () => {
   
 
   
-export default ExistingOrders;
+export default React.memo(ExistingOrders);
